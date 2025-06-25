@@ -1,26 +1,43 @@
 @import "tailwindcss";
+@import "@fontsource/anek-telugu";
 
 :root {
-  --background: #ffffff;
+  --background: #F0E7D6;
   --foreground: #171717;
+
+  --accent-sage: #9DBDB8;
+  --accent-gold: #FCBF49;
+  --accent-orange: #F77F00;
+  --accent-redlux: #EA2E00;
+
+  --font-sans: var(--font-poppins), sans-serif;
+  --font-serif: var(--font-playfair), serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent-orange);
+  --color-highlight: var(--accent-gold);
+  --color-muted: var(--accent-sage);
+  --color-danger: var(--accent-redlux);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-serif);
+
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+  
+    @keyframes scroll {
+      to {
+        transform: translate(calc(-50% - 0.5rem));
+      }
+    }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
