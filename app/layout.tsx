@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Font Imports
 const playfair = Playfair_Display({
@@ -35,6 +36,7 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased">
+        <SpeedInsights />
         {children}
       </body>
     </html>
