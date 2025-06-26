@@ -1,3 +1,4 @@
+import AboutUs from '@/components/about-us';
 import { Clients } from '@/components/clients';
 import { Header } from '@/components/header'
 import HeroText from '@/components/hero-text';
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroText />
       <Clients />
       <PhotoGrid />
+      <AboutUs />
     </div>
   );
 }
