@@ -28,12 +28,12 @@ export default function AboutUs() {
                     What our Employees Say About Us
                 </h2>
                 <Employees />
-                <div>
+                <div className="flex justify-center">
                     <Button
-                        borderRadius="1.5rem"
-                        className="bg-[var(--background)] text-[var(--foreground)] border-[var(--accent-orange)]"
+                        borderRadius="1rem"
+                        className="bg-[var(--background)] text-[var(--foreground)] border-[var(--accent-orange)] items-center p-3 font-semibold border-2"
                     >
-                        Know More
+                        Know More About Us
                     </Button>
                 </div>
             </div>
