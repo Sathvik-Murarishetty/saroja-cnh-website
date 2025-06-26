@@ -3,6 +3,7 @@ import { Clients } from '@/components/clients';
 import { Header } from '@/components/header'
 import HeroText from '@/components/hero-text';
 import { PhotoGrid } from '@/components/photo-grid';
+import { OurServices } from '@/components/our-services';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Clients />
       <PhotoGrid />
       <AboutUs />
+      <OurServices />
     </div>
   );
 }

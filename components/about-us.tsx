@@ -2,7 +2,7 @@
 
 import { Employees } from "./employee";
 import IndiaMap from "./ui/indiamap";
-import { Button } from "@/components/ui/moving-border";
+import { NavbarButton } from "./ui/resizable-navbar";
 
 export default function AboutUs() {
 
@@ -29,12 +29,7 @@ export default function AboutUs() {
                 </h2>
                 <Employees />
                 <div className="flex justify-center">
-                    <Button
-                        borderRadius="1rem"
-                        className="bg-[var(--background)] text-[var(--foreground)] border-[var(--accent-orange)] items-center p-3 font-semibold border-2"
-                    >
-                        Know More About Us
-                    </Button>
+                    <NavbarButton variant="primary">Know More About Us</NavbarButton>
                 </div>
             </div>
         </section>
