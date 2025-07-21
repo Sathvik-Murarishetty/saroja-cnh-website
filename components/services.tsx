@@ -15,31 +15,41 @@ export function TabsServices() {
             ),
         },
         {
-            title: "Government Hostels",
-            value: "government-hostels",
+            title: "Corporate Cafeterias",
+            value: "corporate-cafeterias",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-                    <p>Government Hostels</p>
+                    <p>Corporate Cafeterias</p>
                     <DummyContent />
                 </div>
             ),
         },
         {
-            title: "Corporate Kitchens",
-            value: "corporate-kitchens",
+            title: "Government Catering Contracts",
+            value: "government-catering-contracts",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-                    <p>Corporate Kitchens</p>
+                    <p>Government Catering Contracts</p>
                     <DummyContent />
                 </div>
             ),
         },
         {
-            title: "Institutional Canteens",
-            value: "institutional-canteens",
+            title: "Government Event Catering",
+            value: "government-event-catering",
             content: (
                 <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-                    <p>Institutional Canteens</p>
+                    <p>Government Event Catering</p>
+                    <DummyContent />
+                </div>
+            ),
+        },
+        {
+            title: "Hospitality & Hostel Services",
+            value: "hospitality-hostel-services",
+            content: (
+                <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+                    <p>Hospitality & Hostel Services</p>
                     <DummyContent />
                 </div>
             ),
