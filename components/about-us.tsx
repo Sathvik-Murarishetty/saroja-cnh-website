@@ -8,7 +8,7 @@ export default function AboutUs() {
 
 
     return (
-        <section className="mx-auto max-w-7xl px-6 py-16 flex flex-col-reverse lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
+        <section id="about" className="mx-auto max-w-7xl px-6 py-20 flex flex-col-reverse lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
 
             <div className="w-full lg:w-1/2 flex justify-center">
                 <IndiaMap />

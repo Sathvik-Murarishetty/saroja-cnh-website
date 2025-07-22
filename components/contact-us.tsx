@@ -3,6 +3,7 @@ import React from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
+import { NavbarButton } from "./ui/resizable-navbar";
 
 export function ContactUs() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +46,7 @@ export function ContactUs() {
                                 </LabelInputContainer>
 
                                 <button
-                                    className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                    className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
                                     type="submit"
                                 >
                                     Contact Us &rarr;
