@@ -4,6 +4,7 @@ import { Header } from '@/components/header'
 import HeroText from '@/components/hero-text';
 import { PhotoGrid } from '@/components/photo-grid';
 import { OurServices } from '@/components/our-services';
+import Careers from '@/components/careers';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <PhotoGrid />
       <AboutUs />
       <OurServices />
+      <Careers />
     </div>
   );
 }
