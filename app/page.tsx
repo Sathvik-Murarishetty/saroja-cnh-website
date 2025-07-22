@@ -5,6 +5,7 @@ import HeroText from '@/components/hero-text';
 import { PhotoGrid } from '@/components/photo-grid';
 import { OurServices } from '@/components/our-services';
 import Careers from '@/components/careers';
+import { ContactUs } from '@/components/contact-us';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <AboutUs />
       <OurServices />
       <Careers />
+      <ContactUs />
     </div>
   );
 }
