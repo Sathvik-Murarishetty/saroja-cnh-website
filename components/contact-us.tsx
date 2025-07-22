@@ -41,7 +41,7 @@ export function ContactUs() {
                                 </div>
                                 <LabelInputContainer className="mb-4">
                                     <Label htmlFor="email">Email Address</Label>
-                                    <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+                                    <Input id="email" placeholder="email@email.com" type="email" />
                                 </LabelInputContainer>
 
                                 <button
