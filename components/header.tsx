@@ -16,19 +16,19 @@ export function Header() {
   const navItems = [
         {
       name: "Home",
-      link: "#home",
+      link: "./",
     },
     {
       name: "About",
-      link: "#about",
+      link: "./about",
     },
     {
       name: "Services",
-      link: "#services",
+      link: "./#services",
     },
     {
       name: "Careers",
-      link: "#careers",
+      link: "./#careers",
     },
   ];
 
