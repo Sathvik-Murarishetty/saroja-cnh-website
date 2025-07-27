@@ -2,7 +2,6 @@
 
 import { Tabs } from "./ui/tabs";
 import Image from "next/image";
-import { NavbarButton } from "./ui/resizable-navbar";
 
 
 export function TabsServices() {
@@ -33,7 +32,15 @@ export function TabsServices() {
                                 <li className="text-sm md:text-base">Trained staff & on-site setup</li>
                             </ul>
                         </div>
-                        <NavbarButton variant="primary">📞 Book Event Catering</NavbarButton>
+                        <div className="flex justify-center">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Book Event Catering &rarr;
+                                <BottomGradient />
+                            </button>
+                        </div>
                     </div>
                 </div>
             ),
@@ -64,7 +71,15 @@ export function TabsServices() {
                                 <li className="text-sm md:text-base">FSSAI & hygiene certified</li>
                             </ul>
                         </div>
-                        <NavbarButton variant="primary">📞 Request Cafeteria Service</NavbarButton>
+                        <div className="flex justify-center">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Request Cafeteria Service &rarr;
+                                <BottomGradient />
+                            </button>
+                        </div>
                     </div>
                 </div>
             ),
@@ -126,7 +141,15 @@ export function TabsServices() {
                                 <li className="text-sm md:text-base">Quick and compliant food transport</li>
                             </ul>
                         </div>
-                        <NavbarButton variant="primary">📞 Book Event Catering</NavbarButton>
+                        <div className="flex justify-center">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Book Event Catering &rarr;
+                                <BottomGradient />
+                            </button>
+                        </div>
                     </div>
                 </div>
             ),
@@ -169,3 +192,12 @@ export function TabsServices() {
         </div>
     );
 }
+
+const BottomGradient = () => {
+    return (
+        <>
+            <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[var(--accent-orange)] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+            <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[var(--accent-gold)] to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+        </>
+    );
+};

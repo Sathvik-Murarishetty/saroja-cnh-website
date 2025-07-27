@@ -49,7 +49,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
             <motion.div
                 onClick={handleOutsideClick}
                 className={cn(
-                    "absolute h-full w-full left-0 top-0 bg-[var(--accent-sage)] rounded-xl opacity-0 z-10",
+                    "absolute h-full w-full left-0 top-0 bg-[var(--accent-gold)] rounded-xl opacity-0 z-10",
                     selected?.id ? "pointer-events-auto" : "pointer-events-none"
                 )}
                 animate={{ opacity: selected?.id ? 0.3 : 0 }}

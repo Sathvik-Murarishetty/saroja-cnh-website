@@ -20,8 +20,16 @@ export function Clients() {
 }
 
 const clients = [
-    { src: "./logo.svg" },
-    { src: "./logo.svg" },
-    { src: "./logo.svg" },
-    { src: "./logo.svg" },
+    { src: "./client_1.png" },
+    { src: "./client_2.png" },
+    { src: "./client_3.png" },
+    { src: "./client_4.png" },
+    { src: "./client_5.png" },
+    { src: "./client_6.png" },
+    { src: "./client_7.png" },
+    { src: "./client_8.png" },
+    { src: "./client_9.png" },
+    { src: "./client_10.png" },
+    { src: "./client_11.png" },
+    { src: "./client_12.png" },
 ];

@@ -79,7 +79,7 @@ export const InfiniteMovingCards = ({
                         <img
                             src={item.src}
                             alt={item.alt || `image-${idx}`}
-                            className="w-48 h-auto object-contain"
+                            className="w-auto h-48 object-contain"
                             draggable={false}
                         />
                     </li>

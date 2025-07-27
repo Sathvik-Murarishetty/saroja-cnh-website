@@ -21,9 +21,9 @@ export function ContactUs() {
                             </p>
 
                             <div className="text-[var(--foreground)] space-y-2 text-lg">
-                                <p><strong>📍 Address:</strong> Saroja Caterers, Hyderabad, India</p>
-                                <p><strong>📞 Phone:</strong> +91-9876543210</p>
-                                <p><strong>📧 Email:</strong> hello@sarojacaterers.in</p>
+                                <p><strong>📍 Address:</strong> Saroja Caterers And Hostels, #1-10-243, Ashoka Nagar, Hyderabad - 5000020</p>
+                                <p><strong>📞 Phone:</strong> +91-9000747279</p>
+                                <p><strong>📧 Email:</strong> contact@sarojacaterers.in</p>
                             </div>
                         </div>
             
@@ -39,6 +39,10 @@ export function ContactUs() {
                                         <Input id="lastname" placeholder="Durden" type="text" />
                                     </LabelInputContainer>
                                 </div>
+                                <LabelInputContainer className="mb-4">
+                                    <Label htmlFor="phone">Phone Number</Label>
+                                    <Input id="phone" placeholder="123-456-7890" type="number" />
+                                </LabelInputContainer>
                                 <LabelInputContainer className="mb-4">
                                     <Label htmlFor="email">Email Address</Label>
                                     <Input id="email" placeholder="email@email.com" type="email" />
@@ -64,8 +68,8 @@ export function ContactUs() {
 const BottomGradient = () => {
     return (
         <>
-            <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-            <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+            <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[var(--accent-orange)] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+            <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[var(--accent-gold)] to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
         </>
     );
 };

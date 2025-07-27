@@ -18,8 +18,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Catering Website",
-  description: "Semi-minimalist, semi-luxurious catering experience",
+  title: "Saroja Catering & Hospitality",
+  description: "Dignified Dining. Delivered Daily.",
 };
 
 export default function RootLayout({

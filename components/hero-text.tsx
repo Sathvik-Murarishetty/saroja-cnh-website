@@ -12,7 +12,7 @@ export default function HeroText({ className }: { className?: string }) {
     ];
 
     return (
-        <div>
+        <div id="home">
             <section
                 className={cn(
                     "mx-auto flex max-w-7xl flex-col-reverse items-center justify-between px-6 py-16 lg:flex-row lg:py-32",

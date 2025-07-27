@@ -24,12 +24,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <motion.div
                 style={{
                     background: useMotionTemplate`
-        radial-gradient(
-          ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
-          var(--accent-orange),
-          transparent 80%
-        )
-      `,
+                    radial-gradient(
+                    ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
+                    var(--accent-orange),
+                    transparent 80%
+                    )
+                `,
                 }}
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setVisible(true)}

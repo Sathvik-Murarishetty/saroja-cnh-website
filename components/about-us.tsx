@@ -2,7 +2,6 @@
 
 import { Employees } from "./employee";
 import IndiaMap from "./ui/indiamap";
-import { NavbarButton } from "./ui/resizable-navbar";
 
 export default function AboutUs() {
 
@@ -29,10 +28,25 @@ export default function AboutUs() {
                 </h2>
                 <Employees />
                 <div className="flex justify-center">
-                    <NavbarButton variant="primary">Know More About Us</NavbarButton>
+                    <button
+                        className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                        type="submit"
+                    >
+                        Know More About Us &rarr;
+                        <BottomGradient />
+                    </button>
                 </div>
             </div>
         </section>
 
     );
 }
+
+const BottomGradient = () => {
+    return (
+        <>
+            <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[var(--accent-orange)] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+            <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[var(--accent-gold)] to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+        </>
+    );
+};
