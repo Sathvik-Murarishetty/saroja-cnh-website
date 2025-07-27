@@ -32,11 +32,11 @@ export function ContactUs() {
                                 <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
                                     <LabelInputContainer>
                                         <Label htmlFor="firstname">First name</Label>
-                                        <Input id="firstname" placeholder="Tyler" type="text" />
+                                        <Input id="firstname" placeholder="Saroja" type="text" />
                                     </LabelInputContainer>
                                     <LabelInputContainer>
                                         <Label htmlFor="lastname">Last name</Label>
-                                        <Input id="lastname" placeholder="Durden" type="text" />
+                                        <Input id="lastname" placeholder="Caterers" type="text" />
                                     </LabelInputContainer>
                                 </div>
                                 <LabelInputContainer className="mb-4">
