@@ -24,7 +24,7 @@ export function Header() {
     },
     {
       name: "Services",
-      link: "./#services",
+      link: "./services",
     },
     {
       name: "Careers",

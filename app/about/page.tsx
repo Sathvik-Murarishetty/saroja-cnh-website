@@ -11,7 +11,7 @@ export default function AboutPage() {
     return (
         <div>
             <Header />
-            <section id="about-content" className="mx-auto max-w-7xl px-6 pt-20">
+            <section id="about-content" className="mx-auto max-w-7xl px-6 pt-25">
                 <h2 className="text-5xl font-semibold font-serif leading-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-center mb-10">
                     About Us
                 </h2>
@@ -34,8 +34,6 @@ export default function AboutPage() {
                             What our Employees Say About Us
                         </h3>
                         <Employees />
-                        <div className="flex justify-center">
-                        </div>
                     </div>
                 </div>
             </section>
@@ -104,8 +102,6 @@ export default function AboutPage() {
                         <br />
                         Our <span className="font-semibold">Mission</span> is to deliver world-class catering and hospitality solutions by valuing our clients and their customers, fostering long-term partnerships, and ensuring sustainable growth through ethical and quality-driven practices.
                     </p>
-                    <div className="flex justify-center">
-                    </div>
                 </div>
 
                 <div className="w-full lg:w-1/2 flex items-center justify-center">
