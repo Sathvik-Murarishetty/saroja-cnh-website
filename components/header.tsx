@@ -28,7 +28,7 @@ export function Header() {
     },
     {
       name: "Careers",
-      link: "./#careers",
+      link: "./careers",
     },
   ];
 
