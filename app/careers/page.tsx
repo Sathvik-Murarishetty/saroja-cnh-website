@@ -1,13 +1,14 @@
 "use client";
 
 import { Header } from '@/components/header'
+import { PhotoGrid } from '@/components/photo-grid';
 import Image from "next/image";
 
 export default function AboutPage() {
     return (
         <div>
             <Header />
-            <section id="about-content" className="mx-auto max-w-7xl px-6 pt-25">
+            <section id="careers-content" className="mx-auto max-w-7xl px-6 pt-25">
                 <h2 className="text-5xl font-semibold font-serif leading-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-center mb-10">
                     Careers @ Saroja C&H
                 </h2>
@@ -47,6 +48,13 @@ export default function AboutPage() {
                 </div>
 
             </section>
+
+            <section id="work-photos" className="mx-auto max-w-7xl px-6 pt-25">
+                <h2 className="text-5xl font-semibold font-serif leading-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-center mb-10">
+                    Life at Saroja C&H
+                </h2>
+            </section>
+            <PhotoGrid />
         </div>
     );
 }
