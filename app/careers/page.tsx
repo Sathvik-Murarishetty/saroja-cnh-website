@@ -1,11 +1,15 @@
-import { Header } from '@/components/header'
+// app/careers/page.tsx
+import { Header } from '@/components/header';
 import { PhotoGrid } from '@/components/photo-grid';
-import Image from "next/image";
+import Image from 'next/image';
 import { sql } from '@vercel/postgres';
 import Link from 'next/link';
+import { formatDistanceToNow } from 'date-fns';
 
-export default async function AboutPage() {
-    const { rows: jobs } = await sql`SELECT id, title, location FROM jobs ORDER BY created_at DESC`;
+export default async function CareersPage() {
+    const { rows: jobs } = await sql`
+    SELECT id, title, location, job_type, created_at FROM jobs ORDER BY created_at DESC
+  `;
 
     return (
         <div>
@@ -16,14 +20,12 @@ export default async function AboutPage() {
                 </h2>
             </section>
 
-            <section id="careers" className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
-
+            <section className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
                 <div className="w-full lg:w-1/2 space-y-6">
                     <p className="text-lg text-[var(--foreground)] leading-relaxed">
                         We’re always on the lookout for passionate, committed individuals who want to grow in the hospitality and food services industry.
                         <br />
                         We believe in connecting early with talented people who align with our values of quality, care, and consistency.
-                        <br />
                     </p>
                     <div className="flex justify-center">
                         <button
@@ -46,7 +48,6 @@ export default async function AboutPage() {
                         />
                     </div>
                 </div>
-
             </section>
 
             <div className="mx-auto max-w-7xl px-6 py-16">
@@ -74,7 +75,15 @@ export default async function AboutPage() {
                                 <div>
                                     <h2 className="text-xl font-bold">{job.title}</h2>
                                     <p className="text-sm text-gray-600">📍 {job.location}</p>
+                                    {job.job_type && (
+                                        <span className="inline-block mt-1 bg-[var(--accent-sage)] text-white text-xs px-2 py-1 rounded-full">
+                                            {job.job_type}
+                                        </span>
+                                    )}
                                     <p className="text-xs text-gray-400 mt-1">Job ID: {job.id}</p>
+                                    <p className="text-xs text-gray-400">
+                                        Posted {formatDistanceToNow(new Date(job.created_at))} ago
+                                    </p>
                                 </div>
                                 <Link
                                     href={`/careers/${job.id}`}
@@ -98,11 +107,9 @@ export default async function AboutPage() {
     );
 }
 
-const BottomGradient = () => {
-    return (
-        <>
-            <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[var(--accent-orange)] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-            <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[var(--accent-gold)] to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
-        </>
-    );
-};
+const BottomGradient = () => (
+    <>
+        <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-[var(--accent-orange)] to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+        <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-[var(--accent-gold)] to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+    </>
+);
