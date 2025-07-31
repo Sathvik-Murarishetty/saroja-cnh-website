@@ -17,7 +17,7 @@ export function JobApplication() {
                 Apply for this job
             </h1>
 
-            <form onSubmit={handleSubmit} className="w-full py-6">
+            <form onSubmit={handleSubmit} className="w-full">
                 <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
                     <LabelInputContainer>
                         <Label htmlFor="firstname">First name</Label>
