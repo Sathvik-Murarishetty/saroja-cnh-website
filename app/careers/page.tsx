@@ -1,10 +1,12 @@
-"use client";
-
 import { Header } from '@/components/header'
 import { PhotoGrid } from '@/components/photo-grid';
 import Image from "next/image";
+import { sql } from '@vercel/postgres';
+import Link from 'next/link';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+    const { rows: jobs } = await sql`SELECT id, title, location FROM jobs ORDER BY created_at DESC`;
+
     return (
         <div>
             <Header />
@@ -22,8 +24,6 @@ export default function AboutPage() {
                         <br />
                         We believe in connecting early with talented people who align with our values of quality, care, and consistency.
                         <br />
-                        <br />
-                        Currently, we don’t have any open positions, but we’re always looking for talented individuals to join our team in the future.
                     </p>
                     <div className="flex justify-center">
                         <button
@@ -49,7 +49,46 @@ export default function AboutPage() {
 
             </section>
 
-            <section id="work-photos" className="mx-auto max-w-7xl px-6 pt-25">
+            <div className="mx-auto max-w-7xl px-6 py-16">
+                <h1 className="text-4xl font-serif font-semibold text-center mb-10">Open Positions</h1>
+
+                {jobs.length === 0 ? (
+                    <div>
+                        <p className="text-lg text-[var(--foreground)] leading-relaxed">
+                            Currently, we don’t have any open positions, but we’re always looking for talented individuals to join our team in the future.
+                        </p>
+                        <div className="flex justify-center">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Contact Us &rarr;
+                                <BottomGradient />
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {jobs.map((job) => (
+                            <div key={job.id} className="bg-white border rounded-xl p-5 shadow-sm flex flex-col justify-between">
+                                <div>
+                                    <h2 className="text-xl font-bold">{job.title}</h2>
+                                    <p className="text-sm text-gray-600">📍 {job.location}</p>
+                                    <p className="text-xs text-gray-400 mt-1">Job ID: {job.id}</p>
+                                </div>
+                                <Link
+                                    href={`/careers/${job.id}`}
+                                    className="mt-4 text-sm text-white font-medium bg-[var(--accent-orange)] hover:bg-[var(--accent-gold)] px-4 py-2 rounded-md text-center"
+                                >
+                                    Apply Now →
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            <section id="work-photos" className="mx-auto max-w-7xl px-6 pt-15">
                 <h2 className="text-5xl font-semibold font-serif leading-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-center mb-10">
                     Life at Saroja C&H
                 </h2>
