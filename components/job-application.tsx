@@ -12,7 +12,7 @@ export function JobApplication() {
     };
 
     return (
-        <div className="mx-auto max-w-4xl py-6 flex flex-col items-start text-left gap-8">
+        <div className="mx-auto max-w-4xl pt-6 flex flex-col items-start text-left gap-8">
             <h1 className="text-2xl font-serif font-semibold text-[var(--foreground)]">
                 Apply for this job
             </h1>
