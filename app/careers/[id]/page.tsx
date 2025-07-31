@@ -2,11 +2,13 @@ import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 
-type PageProps = {
-    params: { id: string };
+type Params = {
+    params: {
+        id: string;
+    };
 };
 
-export default async function JobDetailsPage({ params }: PageProps) {
+export default async function JobDetailsPage({ params }: Params) {
     const jobId = parseInt(params.id);
 
     if (isNaN(jobId)) return notFound();
