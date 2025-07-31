@@ -2,19 +2,19 @@ import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 
-type Params = {
-    params: {
-        id: string;
-    };
-};
-
-export default async function JobDetailsPage({ params }: Params) {
+export default async function JobDetailsPage({
+    params,
+}: {
+    params: { id: string };
+}) {
     const jobId = parseInt(params.id);
 
     if (isNaN(jobId)) return notFound();
 
     const { rows } = await sql`
-    SELECT id, title, location, description, job_type, created_at FROM jobs WHERE id = ${jobId}
+    SELECT id, title, location, description, job_type, created_at
+    FROM jobs
+    WHERE id = ${jobId}
   `;
 
     if (rows.length === 0) return notFound();
