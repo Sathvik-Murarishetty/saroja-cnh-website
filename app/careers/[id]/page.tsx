@@ -1,9 +1,13 @@
-// app/careers/[id]/page.tsx
-
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 
-export default async function JobDetailsPage({ params }) {
+type Params = {
+    params: {
+        id: string;
+    };
+};
+
+export default async function JobDetailsPage({ params }: Params) {
     const { id } = params;
 
     const { rows } = await sql`SELECT * FROM jobs WHERE id = ${id}`;
@@ -12,23 +16,29 @@ export default async function JobDetailsPage({ params }) {
     if (!job) return notFound();
 
     return (
-        <div className="max-w-3xl mx-auto px-6 py-16">
-            <h1 className="text-4xl font-serif font-semibold mb-4">{job.title}</h1>
-            <p className="text-sm text-gray-500 mb-2">📍 {job.location}</p>
-            <p className="text-sm text-gray-400 mb-8">Job ID: {job.id}</p>
+        <div className="max-w-4xl mx-auto px-6 py-12">
+            <h1 className="text-4xl font-bold mb-4">{job.title}</h1>
+            <p className="text-xl text-gray-600 mb-2">📍 {job.location}</p>
+            <p className="text-gray-800 whitespace-pre-line mb-8">{job.description}</p>
 
-            <div className="prose mb-12 text-[var(--foreground)]">
-                <p>{job.description}</p>
-            </div>
-
-            <form className="space-y-4 max-w-xl">
-                <input type="text" placeholder="Your Name" required className="w-full border px-4 py-2 rounded-md" />
-                <input type="email" placeholder="Your Email" required className="w-full border px-4 py-2 rounded-md" />
-                <textarea placeholder="Cover Letter or Message" rows={4} className="w-full border px-4 py-2 rounded-md" />
-                <input type="file" className="w-full" />
+            <form className="space-y-4">
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full border border-gray-300 p-2 rounded"
+                />
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="w-full border border-gray-300 p-2 rounded"
+                />
+                <textarea
+                    placeholder="Why do you want to join?"
+                    className="w-full border border-gray-300 p-2 rounded"
+                />
                 <button
                     type="submit"
-                    className="bg-[var(--accent-orange)] hover:bg-[var(--accent-gold)] text-white px-6 py-2 rounded-md font-medium"
+                    className="px-6 py-2 bg-[var(--accent-orange)] text-white rounded hover:opacity-90"
                 >
                     Submit Application
                 </button>
