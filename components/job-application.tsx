@@ -12,7 +12,7 @@ export function JobApplication() {
     };
 
     return (
-        <div className="w-full flex justify-center">
+        <div className="w-full">
             <h1 className="text-2xl font-serif font-semibold mb-4 text-[var(--foreground)]">
                 Apply for this job
             </h1>
