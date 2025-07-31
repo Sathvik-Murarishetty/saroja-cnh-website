@@ -53,8 +53,8 @@ export default async function JobDetail({
                         </p>
                     </div>
                 </div>
+                <JobApplication />
             </div>
-            <JobApplication />
         </div>
     );
 }
