@@ -18,8 +18,14 @@ async function getJob(id: string): Promise<Job> {
     return res.json();
 }
 
-export default async function JobDetail({ params }: { params: { id: string } }) {
-    const job = await getJob(params.id);
+export default async function JobDetail({
+    params
+}: {
+    params: Promise<{ id: string }>
+}) {
+    // Await the params Promise
+    const { id } = await params;
+    const job = await getJob(id);
 
     return (
         <div className="max-w-3xl mx-auto py-12 px-4">

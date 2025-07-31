@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 
-export async function GET(req: Request, context: any) {
+export async function GET(
+  req: Request, 
+  context: { params: Promise<{ id: string }> }
+) {
   try {
-    const id = context.params.id;
+    // Await the params Promise
+    const { id } = await context.params;
     
     // Validate ID is a number
     const jobId = parseInt(id);
