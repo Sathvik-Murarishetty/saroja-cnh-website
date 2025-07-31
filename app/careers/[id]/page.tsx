@@ -1,12 +1,16 @@
+// app/careers/[id]/page.tsx
+
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
-import { format } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 
-export default async function JobDetailsPage({
-    params,
-}: {
-    params: { id: string };
-}) {
+type PageParams = {
+    params: {
+        id: string;
+    };
+};
+
+export default async function JobDetailsPage({ params }: PageParams) {
     const jobId = parseInt(params.id);
 
     if (isNaN(jobId)) return notFound();
@@ -25,13 +29,15 @@ export default async function JobDetailsPage({
         <div className="max-w-3xl mx-auto px-6 py-20">
             <h1 className="text-4xl font-bold mb-4">{job.title}</h1>
             <p className="text-gray-600 text-sm mb-1">📍 {job.location}</p>
+
             {job.job_type && (
                 <p className="inline-block mb-2 bg-[var(--accent-sage)] text-white text-xs px-3 py-1 rounded-full">
                     {job.job_type}
                 </p>
             )}
-            <p className="text-gray-500 text-xs mb-8">
-                Posted on {format(new Date(job.created_at), 'MMMM dd, yyyy')}
+
+            <p className="text-gray-400 text-xs mt-1 mb-6">
+                Posted {formatDistanceToNow(new Date(job.created_at))} ago
             </p>
 
             <div className="prose prose-lg max-w-none mb-10">

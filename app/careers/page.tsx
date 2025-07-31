@@ -8,7 +8,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 export default async function CareersPage() {
     const { rows: jobs } = await sql`
-    SELECT id, title, location, job_type, created_at FROM jobs ORDER BY created_at DESC
+    SELECT id, title, location, created_at FROM jobs ORDER BY created_at DESC
   `;
 
     return (
@@ -69,27 +69,23 @@ export default async function CareersPage() {
                         </div>
                     </div>
                 ) : (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {jobs.map((job) => (
-                            <div key={job.id} className="bg-white border rounded-xl p-5 shadow-sm flex flex-col justify-between">
-                                <div>
-                                    <h2 className="text-xl font-bold">{job.title}</h2>
-                                    <p className="text-sm text-gray-600">📍 {job.location}</p>
-                                    {job.job_type && (
-                                        <span className="inline-block mt-1 bg-[var(--accent-sage)] text-white text-xs px-2 py-1 rounded-full">
-                                            {job.job_type}
-                                        </span>
-                                    )}
-                                    <p className="text-xs text-gray-400 mt-1">Job ID: {job.id}</p>
-                                    <p className="text-xs text-gray-400">
-                                        Posted {formatDistanceToNow(new Date(job.created_at))} ago
-                                    </p>
-                                </div>
+                            <div
+                                key={job.id}
+                                className="border rounded-lg p-4 shadow hover:shadow-md transition"
+                            >
+                                <h2 className="text-xl font-semibold">{job.title}</h2>
+                                <p className="text-sm text-gray-600">📍 {job.location}</p>
+                                <p className="text-xs text-gray-400 mt-1">
+                                    Posted {formatDistanceToNow(new Date(job.created_at))} ago
+                                </p>
+                                <p className="text-xs text-gray-400">Job ID: {job.id}</p>
                                 <Link
                                     href={`/careers/${job.id}`}
-                                    className="mt-4 text-sm text-white font-medium bg-[var(--accent-orange)] hover:bg-[var(--accent-gold)] px-4 py-2 rounded-md text-center"
+                                    className="mt-4 inline-block bg-[var(--accent-orange)] text-white text-sm px-4 py-1 rounded-md"
                                 >
-                                    Apply Now →
+                                    Apply Now
                                 </Link>
                             </div>
                         ))}
