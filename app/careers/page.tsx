@@ -1,4 +1,3 @@
-// app/careers/page.tsx
 import { Header } from '@/components/header';
 import { PhotoGrid } from '@/components/photo-grid';
 import Image from 'next/image';
@@ -15,7 +14,6 @@ interface Job {
 
 async function getJobs(): Promise<Job[]> {
     try {
-        // Use absolute URL for production, fallback for development
         const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://saroja-cnh-website.vercel.app';
 
         const res = await fetch(`${baseUrl}/api/jobs`, {
@@ -29,11 +27,9 @@ async function getJobs(): Promise<Job[]> {
 
         const data = await res.json();
 
-        // Ensure we return an array
         return Array.isArray(data) ? data : [];
     } catch (error) {
         console.error('Error fetching jobs:', error);
-        // Return empty array instead of crashing the page
         return [];
     }
 }
@@ -107,7 +103,7 @@ export default async function CareersPage() {
                                                 {locationEmoji} {job.location}
                                             </p>
 
-                                            <div className="mt-2 inline-block px-3 py-1 text-xs font-medium bg-[var(--accent-sage)] text-white rounded-full">
+                                            <div className="mt-2 inline-block px-3 py-1 text-sm font-medium bg-[var(--accent-gold)] text-white rounded-full">
                                                 {jobTypeEmoji} {job.job_type}
                                             </div>
 
@@ -122,7 +118,7 @@ export default async function CareersPage() {
                                             href={`/careers/${job.id}`}
                                             className="mt-6 inline-flex items-center text-[var(--accent-orange)] font-medium hover:underline"
                                         >
-                                            View Details <span className="ml-1 text-sm">→</span>
+                                            View Details &rarr;
                                         </Link>
                                     </div>
                                 );

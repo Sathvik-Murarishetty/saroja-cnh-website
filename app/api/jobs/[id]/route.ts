@@ -12,8 +12,7 @@ export async function GET(
 ) {
   try {
     const { id } = await context.params;
-    
-    // Validate ID is a number
+
     const jobId = parseInt(id);
     if (isNaN(jobId)) {
       return new NextResponse('Invalid ID', { status: 400 });

@@ -23,7 +23,6 @@ export default async function JobDetail({
 }: {
     params: Promise<{ id: string }>
 }) {
-    // Await the params Promise
     const { id } = await params;
     const job = await getJob(id);
 
