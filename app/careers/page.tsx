@@ -103,7 +103,7 @@ export default async function CareersPage() {
                                                 {locationEmoji} {job.location}
                                             </p>
 
-                                            <div className="mt-2 inline-block px-3 py-1 text-sm font-medium bg-[var(--accent-gold)] text-white rounded-full">
+                                            <div className="mt-2 inline-block px-3 py-1 text-sm font-medium text-[var(--foreground)] ">
                                                 {jobTypeEmoji} {job.job_type}
                                             </div>
 
