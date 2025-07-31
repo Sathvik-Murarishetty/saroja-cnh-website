@@ -14,10 +14,28 @@ interface Job {
 }
 
 async function getJobs(): Promise<Job[]> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`, {
-        cache: 'no-store',
-    });
-    return res.json();
+    try {
+        // Use absolute URL for production, fallback for development
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://saroja-cnh-website.vercel.app';
+
+        const res = await fetch(`${baseUrl}/api/jobs`, {
+            cache: 'no-store',
+        });
+
+        if (!res.ok) {
+            console.warn(`Jobs API failed with status: ${res.status}`);
+            return [];
+        }
+
+        const data = await res.json();
+
+        // Ensure we return an array
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        console.error('Error fetching jobs:', error);
+        // Return empty array instead of crashing the page
+        return [];
+    }
 }
 
 export default async function CareersPage() {
@@ -35,7 +53,7 @@ export default async function CareersPage() {
             <section className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
                 <div className="w-full lg:w-1/2 space-y-6">
                     <p className="text-lg text-[var(--foreground)] leading-relaxed">
-                        We’re always on the lookout for passionate, committed individuals who want to grow in the hospitality and food services industry.
+                        We&apos;re always on the lookout for passionate, committed individuals who want to grow in the hospitality and food services industry.
                         <br />
                         We believe in connecting early with talented people who align with our values of quality, care, and consistency.
                     </p>
@@ -66,9 +84,9 @@ export default async function CareersPage() {
                 <h1 className="text-4xl font-serif font-semibold text-center mb-10">Open Positions</h1>
 
                 {jobs.length === 0 ? (
-                    <div>
+                    <div className="text-center space-y-6">
                         <p className="text-lg text-[var(--foreground)] leading-relaxed">
-                            Currently, we don’t have any open positions, but we’re always looking for talented individuals to join our team in the future.
+                            Currently, we don&apos;t have any open positions, but we&apos;re always looking for talented individuals to join our team in the future.
                         </p>
                         <div className="flex justify-center">
                             <button
