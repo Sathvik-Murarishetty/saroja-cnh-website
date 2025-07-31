@@ -12,11 +12,12 @@ export function JobApplication() {
     };
 
     return (
-        <div className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
-            <h1 className="text-2xl font-serif font-semibold mb-4 text-[var(--foreground)]">
+        <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col items-start text-left gap-8">
+            <h1 className="text-2xl font-serif font-semibold text-[var(--foreground)]">
                 Apply for this job
             </h1>
-            <form className="my-8" onSubmit={handleSubmit}>
+
+            <form onSubmit={handleSubmit} className="w-full py-6">
                 <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
                     <LabelInputContainer>
                         <Label htmlFor="firstname">First name</Label>
@@ -27,10 +28,12 @@ export function JobApplication() {
                         <Input id="lastname" placeholder="Caterers" type="text" />
                     </LabelInputContainer>
                 </div>
+
                 <LabelInputContainer className="mb-4">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" placeholder="123-456-7890" type="number" />
                 </LabelInputContainer>
+
                 <LabelInputContainer className="mb-4">
                     <Label htmlFor="email">Email Address</Label>
                     <Input id="email" placeholder="email@email.com" type="email" />
@@ -45,7 +48,6 @@ export function JobApplication() {
                 </button>
 
                 <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
-
             </form>
         </div>
     );
