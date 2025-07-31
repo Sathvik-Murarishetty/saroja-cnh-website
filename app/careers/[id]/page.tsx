@@ -11,7 +11,7 @@ interface Job {
 }
 
 async function getJob(id: string): Promise<Job> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/api/jobs/${id}`, {
         cache: 'no-store',
     });
     if (!res.ok) throw new Error('Job not found');

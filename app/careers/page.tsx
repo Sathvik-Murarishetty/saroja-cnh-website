@@ -14,7 +14,7 @@ interface Job {
 }
 
 async function getJobs(): Promise<Job[]> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/api/jobs`, {
         cache: 'no-store',
     });
     return res.json();
