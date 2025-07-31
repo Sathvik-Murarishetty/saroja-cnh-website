@@ -50,45 +50,43 @@ export default async function CareersPage() {
                 </h2>
             </section>
 
-            <section className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
-                <div className="w-full lg:w-1/2 space-y-6">
-                    <p className="text-lg text-[var(--foreground)] leading-relaxed">
-                        We&apos;re always on the lookout for passionate, committed individuals who want to grow in the hospitality and food services industry.
-                        <br />
-                        We believe in connecting early with talented people who align with our values of quality, care, and consistency.
-                    </p>
-                </div>
-
-                <div className="w-full lg:w-1/2 flex justify-center">
-                    <div className="relative w-full h-64">
-                        <Image
-                            src="/careers.png"
-                            alt="Hospitality & Hostel Services"
-                            fill
-                            className="object-contain rounded-2xl"
-                        />
-                    </div>
-                </div>
-            </section>
-
             <div className="mx-auto max-w-7xl px-6 py-10">
-                <h1 className="text-4xl font-serif font-semibold text-center mb-10">Open Positions</h1>
+                <h1 className="text-5xl font-serif font-semibold text-center mb-10">Open Positions</h1>
 
                 {jobs.length === 0 ? (
-                    <div className="text-center space-y-6">
-                        <p className="text-lg text-[var(--foreground)] leading-relaxed">
-                            Currently, we don&apos;t have any open positions, but we&apos;re always looking for talented individuals to join our team in the future.
-                        </p>
-                        <div className="flex justify-center">
-                            <button
-                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                                type="submit"
-                            >
-                                📞 Contact Us &rarr;
-                                <BottomGradient />
-                            </button>
+                    <section className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
+                        <div className="w-full lg:w-1/2 space-y-6">
+                            <p className="text-lg text-[var(--foreground)] leading-relaxed">
+                                Currently, we don&apos;t have any open positions, but we&apos;re always looking for talented individuals to join our team in the future.
+                                <br />
+                                <br />
+                                We&apos;re always on the lookout for passionate, committed individuals who want to grow in the hospitality and food services industry.
+                                <br />
+                                We believe in connecting early with talented people who align with our values of quality, care, and consistency.
+                            </p>
+                            <br />
+                            <div className="flex justify-center">
+                                <button
+                                    className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                    type="submit"
+                                >
+                                    📞 Contact Us &rarr;
+                                    <BottomGradient />
+                                </button>
+                            </div>
                         </div>
-                    </div>
+
+                        <div className="w-full lg:w-1/2 flex justify-center">
+                            <div className="relative w-full h-64">
+                                <Image
+                                    src="/careers.png"
+                                    alt="Hospitality & Hostel Services"
+                                    fill
+                                    className="object-contain rounded-2xl"
+                                />
+                            </div>
+                        </div>
+                    </section>
                 ) : (
                     <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {jobs.map((job) => (
