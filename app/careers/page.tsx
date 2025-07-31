@@ -57,19 +57,10 @@ export default async function CareersPage() {
                         <br />
                         We believe in connecting early with talented people who align with our values of quality, care, and consistency.
                     </p>
-                    <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Contact Us &rarr;
-                            <BottomGradient />
-                        </button>
-                    </div>
                 </div>
 
                 <div className="w-full lg:w-1/2 flex justify-center">
-                    <div className="relative w-full h-96">
+                    <div className="relative w-full h-64">
                         <Image
                             src="/careers.png"
                             alt="Hospitality & Hostel Services"
@@ -80,7 +71,7 @@ export default async function CareersPage() {
                 </div>
             </section>
 
-            <div className="mx-auto max-w-7xl px-6 py-16">
+            <div className="mx-auto max-w-7xl px-6 py-10">
                 <h1 className="text-4xl font-serif font-semibold text-center mb-10">Open Positions</h1>
 
                 {jobs.length === 0 ? (
