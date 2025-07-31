@@ -1,13 +1,13 @@
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 
-type Params = {
+interface PageProps {
     params: {
         id: string;
     };
-};
+}
 
-export default async function JobDetailsPage({ params }: Params) {
+export default async function JobDetailsPage({ params }: PageProps) {
     const { id } = params;
 
     const { rows } = await sql`SELECT * FROM jobs WHERE id = ${id}`;
