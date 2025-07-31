@@ -4,15 +4,12 @@ import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 import { formatDistanceToNow } from 'date-fns';
 
-type PageParams = {
-    params: {
-        id: string;
-    };
-};
-
-export default async function JobDetailsPage({ params }: PageParams) {
+export default async function JobDetailsPage({
+    params,
+}: {
+    params: { id: string };
+}) {
     const jobId = parseInt(params.id);
-
     if (isNaN(jobId)) return notFound();
 
     const { rows } = await sql`
