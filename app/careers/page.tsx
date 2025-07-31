@@ -77,7 +77,7 @@ export default async function CareersPage() {
                         </div>
 
                         <div className="w-full lg:w-1/2 flex justify-center">
-                            <div className="relative w-full h-64">
+                            <div className="relative w-full h-86">
                                 <Image
                                     src="/careers.png"
                                     alt="Hospitality & Hostel Services"
@@ -88,26 +88,46 @@ export default async function CareersPage() {
                         </div>
                     </section>
                 ) : (
-                    <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                        {jobs.map((job) => (
-                            <div key={job.id} className="border p-4 rounded-xl shadow hover:shadow-md transition">
-                                <h2 className="text-xl font-semibold">{job.title}</h2>
-                                <p className="text-sm text-gray-600">{job.location}</p>
-                                <p className="text-sm mt-1">{job.job_type}</p>
-                                {job.created_at && (
-                                    <p className="text-xs text-gray-400 mt-1">
-                                        Posted {formatDistanceToNow(new Date(job.created_at), { addSuffix: true })}
-                                    </p>
-                                )}
-                                <Link
-                                    href={`/careers/${job.id}`}
-                                    className="inline-block mt-4 text-accent-orange hover:underline"
-                                >
-                                    View Details
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                            {jobs.map((job) => {
+                                const locationEmoji = '📍';
+                                const jobTypeEmoji = '💼';
+
+                                return (
+                                    <div
+                                        key={job.id}
+                                        className="group relative p-6 rounded-2xl border border-[var(--accent-orange)] transition-all duration-300 flex flex-col justify-between hover:border-[var(--accent-gold)]"
+                                    >
+                                        <div>
+                                            <h3 className="text-2xl font-serif font-semibold text-[var(--foreground)] group-hover:text-[var(--accent-orange)] transition-colors duration-150">
+                                                {job.title}
+                                            </h3>
+
+                                            <p className="text-sm text-[var(--foreground)] mt-1">
+                                                {locationEmoji} {job.location}
+                                            </p>
+
+                                            <div className="mt-2 inline-block px-3 py-1 text-xs font-medium bg-[var(--accent-sage)] text-white rounded-full">
+                                                {jobTypeEmoji} {job.job_type}
+                                            </div>
+
+                                            {job.created_at && (
+                                                <p className="text-xs text-[var(--foreground)] mt-3">
+                                                    Posted {formatDistanceToNow(new Date(job.created_at), { addSuffix: true })}
+                                                </p>
+                                            )}
+                                        </div>
+
+                                        <Link
+                                            href={`/careers/${job.id}`}
+                                            className="mt-6 inline-flex items-center text-[var(--accent-orange)] font-medium hover:underline"
+                                        >
+                                            View Details <span className="ml-1 text-sm">→</span>
+                                        </Link>
+                                    </div>
+                                );
+                            })}
+                        </div>
                 )}
             </div>
 
