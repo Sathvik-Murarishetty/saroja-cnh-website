@@ -103,12 +103,12 @@ export default async function CareersPage() {
                                                 {locationEmoji} {job.location}
                                             </p>
 
-                                            <div className="mt-2 inline-block px-3 py-1 text-sm font-medium text-[var(--foreground)] ">
+                                            <p className="mt-1 text-sm text-[var(--foreground)] ">
                                                 {jobTypeEmoji} {job.job_type}
-                                            </div>
+                                            </p>
 
                                             {job.created_at && (
-                                                <p className="text-xs text-[var(--foreground)] mt-3">
+                                                <p className="text-xs text-[var(--foreground)] mt-2">
                                                     Posted {formatDistanceToNow(new Date(job.created_at), { addSuffix: true })}
                                                 </p>
                                             )}
@@ -116,7 +116,7 @@ export default async function CareersPage() {
 
                                         <Link
                                             href={`/careers/${job.id}`}
-                                            className="mt-6 inline-flex items-center text-[var(--accent-orange)] font-medium hover:underline"
+                                            className="mt-4 inline-flex items-center text-[var(--accent-orange)] font-medium hover:underline"
                                         >
                                             View Details &rarr;
                                         </Link>
