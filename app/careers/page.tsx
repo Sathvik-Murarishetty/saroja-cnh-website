@@ -2,14 +2,26 @@
 import { Header } from '@/components/header';
 import { PhotoGrid } from '@/components/photo-grid';
 import Image from 'next/image';
-import { sql } from '@vercel/postgres';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 
+interface Job {
+    id: number;
+    title: string;
+    location: string;
+    job_type: string;
+    created_at?: string;
+}
+
+async function getJobs(): Promise<Job[]> {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`, {
+        cache: 'no-store',
+    });
+    return res.json();
+}
+
 export default async function CareersPage() {
-    const { rows: jobs } = await sql`
-    SELECT id, title, location, created_at FROM jobs ORDER BY created_at DESC
-  `;
+    const jobs = await getJobs();
 
     return (
         <div>
@@ -69,23 +81,22 @@ export default async function CareersPage() {
                         </div>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {jobs.map((job) => (
-                            <div
-                                key={job.id}
-                                className="border rounded-lg p-4 shadow hover:shadow-md transition"
-                            >
+                            <div key={job.id} className="border p-4 rounded-xl shadow hover:shadow-md transition">
                                 <h2 className="text-xl font-semibold">{job.title}</h2>
-                                <p className="text-sm text-gray-600">📍 {job.location}</p>
-                                <p className="text-xs text-gray-400 mt-1">
-                                    Posted {formatDistanceToNow(new Date(job.created_at))} ago
-                                </p>
-                                <p className="text-xs text-gray-400">Job ID: {job.id}</p>
+                                <p className="text-sm text-gray-600">{job.location}</p>
+                                <p className="text-sm mt-1">{job.job_type}</p>
+                                {job.created_at && (
+                                    <p className="text-xs text-gray-400 mt-1">
+                                        Posted {formatDistanceToNow(new Date(job.created_at), { addSuffix: true })}
+                                    </p>
+                                )}
                                 <Link
                                     href={`/careers/${job.id}`}
-                                    className="mt-4 inline-block bg-[var(--accent-orange)] text-white text-sm px-4 py-1 rounded-md"
+                                    className="inline-block mt-4 text-accent-orange hover:underline"
                                 >
-                                    Apply Now
+                                    View Details
                                 </Link>
                             </div>
                         ))}

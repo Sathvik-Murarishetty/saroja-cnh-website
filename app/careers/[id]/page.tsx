@@ -1,68 +1,47 @@
-import { sql } from '@vercel/postgres';
-import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 
-export default async function JobDetailsPage({
-    params,
-}: {
-    params: { id: string };
-}) {
-    const jobId = parseInt(params.id, 10);
-    if (isNaN(jobId)) return notFound();
+interface Job {
+    id: string;
+    title: string;
+    location: string;
+    job_type: string;
+    description: string;
+    created_at: string;
+}
 
-    const { rows } = await sql`
-    SELECT id, title, location, description, job_type, created_at
-    FROM jobs
-    WHERE id = ${jobId}
-  `;
+async function getJob(id: string): Promise<Job> {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs/${id}`, {
+        cache: 'no-store',
+    });
+    if (!res.ok) throw new Error('Job not found');
+    return res.json();
+}
 
-    if (rows.length === 0) return notFound();
-
-    const job = rows[0];
+export default async function JobDetail({ params }: { params: { id: string } }) {
+    const job = await getJob(params.id);
 
     return (
-        <div className="max-w-3xl mx-auto px-6 py-20">
-            <h1 className="text-4xl font-bold mb-4">{job.title}</h1>
-            <p className="text-gray-600 text-sm mb-1">📍 {job.location}</p>
+        <div className="max-w-3xl mx-auto py-12 px-4">
+            <Link href="/careers" className="text-sm text-accent-orange hover:underline mb-6 inline-block">
+                ← Back to Careers
+            </Link>
 
-            {job.job_type && (
-                <p className="inline-block mb-2 bg-[var(--accent-sage)] text-white text-xs px-3 py-1 rounded-full">
-                    {job.job_type}
-                </p>
-            )}
+            <h1 className="text-4xl font-serif font-semibold mb-2 text-[var(--foreground)]">
+                {job.title}
+            </h1>
 
-            <p className="text-gray-400 text-xs mt-1 mb-6">
-                Posted {formatDistanceToNow(new Date(job.created_at))} ago
+            <p className="text-gray-600 mb-1">
+                {job.location} • {job.job_type}
             </p>
 
-            <div className="prose prose-lg max-w-none mb-10">
-                <p>{job.description}</p>
-            </div>
+            <p className="text-sm text-gray-500 mb-6">
+                Posted {formatDistanceToNow(new Date(job.created_at), { addSuffix: true })}
+            </p>
 
-            <form className="space-y-4">
-                <h2 className="text-2xl font-semibold">Apply Now</h2>
-                <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full border px-4 py-2 rounded-md"
-                />
-                <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full border px-4 py-2 rounded-md"
-                />
-                <textarea
-                    placeholder="Why should we consider you?"
-                    rows={4}
-                    className="w-full border px-4 py-2 rounded-md"
-                ></textarea>
-                <button
-                    type="submit"
-                    className="bg-[var(--accent-orange)] hover:bg-[var(--accent-gold)] text-white px-5 py-2 rounded-md"
-                >
-                    Submit Application
-                </button>
-            </form>
+            <p className="whitespace-pre-line text-[var(--foreground)] leading-relaxed">
+                {job.description}
+            </p>
         </div>
     );
 }
