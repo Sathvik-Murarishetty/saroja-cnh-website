@@ -1,4 +1,3 @@
-// app/careers/[id]/page.tsx
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
@@ -8,10 +7,12 @@ type PageProps = {
 };
 
 export default async function JobDetailsPage({ params }: PageProps) {
-    const { id } = params;
+    const jobId = parseInt(params.id);
+
+    if (isNaN(jobId)) return notFound();
 
     const { rows } = await sql`
-    SELECT id, title, location, description, job_type, created_at FROM jobs WHERE id = ${id}
+    SELECT id, title, location, description, job_type, created_at FROM jobs WHERE id = ${jobId}
   `;
 
     if (rows.length === 0) return notFound();
