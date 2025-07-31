@@ -1,5 +1,3 @@
-// app/careers/[id]/page.tsx
-
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
 import { formatDistanceToNow } from 'date-fns';
@@ -9,7 +7,7 @@ export default async function JobDetailsPage({
 }: {
     params: { id: string };
 }) {
-    const jobId = parseInt(params.id);
+    const jobId = parseInt(params.id, 10);
     if (isNaN(jobId)) return notFound();
 
     const { rows } = await sql`
