@@ -32,7 +32,7 @@ export default async function JobDetail({
             <Header />
 
             <div className="max-w-3xl mx-auto pt-25 px-6">
-                <Link href="/careers" className="text-sm text-[var(--accent-orange)] hover:underline mb-6 inline-block">
+                <Link href="/careers" className="text-md text-[var(--accent-orange)] hover:underline mb-6 inline-block">
                     ← Back to Careers
                 </Link>
 
