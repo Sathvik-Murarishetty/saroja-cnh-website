@@ -4,6 +4,7 @@ import { Header } from '@/components/header'
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { Textarea } from '@/components/ui/textarea';
 
 export default function AboutPage() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +53,16 @@ export default function AboutPage() {
                         <LabelInputContainer className="mb-4">
                             <Label htmlFor="email">Email Address</Label>
                             <Input id="email" placeholder="email@email.com" type="email" />
+                        </LabelInputContainer>
+                        <LabelInputContainer className="mb-6">
+                            <Label htmlFor="message">Message</Label>
+                            <Textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell us about your catering needs, event details, or questions..."
+                                rows={5}
+                                required
+                            />
                         </LabelInputContainer>
 
                         <button
