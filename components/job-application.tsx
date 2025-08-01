@@ -54,22 +54,26 @@ export function JobApplication() {
                 <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
                     <LabelInputContainer>
                         <Label htmlFor="firstname">First name</Label>
-                        <Input id="firstname" placeholder="Saroja" type="text" />
+                        <Input id="firstname" placeholder="Saroja" type="text" value={form.firstname}
+                            onChange={handleChange} required />
                     </LabelInputContainer>
                     <LabelInputContainer>
                         <Label htmlFor="lastname">Last name</Label>
-                        <Input id="lastname" placeholder="Caterers" type="text" />
+                        <Input id="lastname" placeholder="Caterers" type="text" value={form.lastname}
+                            onChange={handleChange} />
                     </LabelInputContainer>
                 </div>
 
                 <LabelInputContainer className="mb-4">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="123-456-7890" type="number" />
+                    <Input id="phone" placeholder="123-456-7890" type="number" value={form.phone}
+                        onChange={handleChange} required />
                 </LabelInputContainer>
 
                 <LabelInputContainer className="mb-4">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" placeholder="email@email.com" type="email" />
+                    <Input id="email" placeholder="email@email.com" type="email" value={form.email}
+                        onChange={handleChange} />
                 </LabelInputContainer>
 
                 <button
