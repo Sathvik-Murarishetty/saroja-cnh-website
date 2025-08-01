@@ -1,15 +1,56 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import { Textarea } from "./ui/textarea";
 
 export function ContactUs() {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("Form submitted");
+    const [form, setForm] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const [status, setStatus] = useState("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setForm({ ...form, [e.target.id]: e.target.value });
     };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("Sending...");
+
+        const res = await fetch("/api/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                fromPage: "Contact Form",
+                subject: `New Query - ${form.firstname} ${form.lastname}`,
+                name: `${form.firstname} ${form.lastname}`,
+                email: form.email,
+                phone: form.phone,
+                message: form.message,
+            }),
+        });
+
+        if (res.ok) {
+            setStatus("Message sent successfully!");
+            setForm({
+                firstname: "",
+                lastname: "",
+                email: "",
+                phone: "",
+                message: "",
+            });
+        } else {
+            setStatus("Failed to send. Please try again.");
+        }
+    };
+
     return (
         <section className="mx-auto max-w-7xl px-6 py-20 flex flex-col lg:flex-row gap-8 items-center lg:items-start text-center lg:text-left">
 

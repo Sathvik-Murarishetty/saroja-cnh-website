@@ -1,14 +1,47 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 
 export function JobApplication() {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const [form, setForm] = useState({
+        firstname: "",
+        lastname: "",
+        phone: "",
+        email: "",
+    });
+
+    const [status, setStatus] = useState("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [e.target.id]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted");
+        setStatus("Submitting...");
+
+        const res = await fetch("/api/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                fromPage: "Job Application",
+                subject: `New Job Application - ${form.firstname} ${form.lastname}`,
+                name: `${form.firstname} ${form.lastname}`,
+                email: form.email,
+                phone: form.phone,
+                message: "New job application submitted through the website.",
+            }),
+        });
+
+        if (res.ok) {
+            setStatus("Application submitted successfully!");
+            setForm({ firstname: "", lastname: "", phone: "", email: "" });
+        } else {
+            setStatus("Failed to submit. Please try again.");
+        }
     };
 
     return (
