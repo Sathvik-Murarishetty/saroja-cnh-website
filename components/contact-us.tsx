@@ -54,7 +54,7 @@ export function ContactUs() {
                             id="message"
                             name="message"
                             placeholder="Tell us about your catering needs, event details, or questions..."
-                            rows={5}
+                            rows={4}
                             required
                         />
                     </LabelInputContainer>
