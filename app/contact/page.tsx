@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import { Header } from '@/components/header'
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -51,7 +52,7 @@ export default function ContactPage() {
                 setStatus("Failed to send. Please try again.");
             }
         };
-        
+
     return (
         <div>
             <Header />
