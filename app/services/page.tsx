@@ -2,6 +2,7 @@
 
 import { Header } from '@/components/header'
 import { EventCatering } from './event-catering';
+import Link from "next/link";
 
 export default function AboutPage() {
     return (
@@ -34,13 +35,15 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Book Event Catering &rarr;
-                            <BottomGradient />
-                        </button>
+                        <Link href="/contact">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Book Event Catering &rarr;
+                                <BottomGradient />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -63,13 +66,15 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Request Cafeteria Service &rarr;
-                            <BottomGradient />
-                        </button>
+                        <Link href="/contact">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Request Cafeteria Service &rarr;
+                                <BottomGradient />
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -102,13 +107,15 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Contact Us &rarr;
-                            <BottomGradient />
-                        </button>
+                        <Link href="/contact">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Contact Us &rarr;
+                                <BottomGradient />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -131,13 +138,15 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Book Event Catering &rarr;
-                            <BottomGradient />
-                        </button>
+                        <Link href="/contact">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Book Event Catering &rarr;
+                                <BottomGradient />
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -168,13 +177,15 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="flex justify-center">
-                        <button
-                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                            type="submit"
-                        >
-                            📞 Contact Us &rarr;
-                            <BottomGradient />
-                        </button>
+                        <Link href="/contact">
+                            <button
+                                className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                                type="submit"
+                            >
+                                📞 Contact Us &rarr;
+                                <BottomGradient />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>

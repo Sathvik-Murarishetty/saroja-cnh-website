@@ -3,6 +3,7 @@
 import CountUp from "./counter";
 import { Employees } from "./employee";
 import IndiaMap from "./ui/indiamap";
+import Link from "next/link";
 
 export default function AboutUs() {
 
@@ -30,6 +31,7 @@ export default function AboutUs() {
                     </h2>
                     <Employees />
                     <div className="flex justify-center">
+                        <Link href="/about">
                         <button
                             className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
                             type="submit"
@@ -37,6 +39,7 @@ export default function AboutUs() {
                             Know More About Us &rarr;
                             <BottomGradient />
                         </button>
+                        </Link>
                     </div>
                 </div>
             </section>

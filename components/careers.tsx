@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Careers() {
 
@@ -18,13 +19,15 @@ export default function Careers() {
                     We believe in connecting early with talented people who align with our values of quality, care, and consistency.
                 </p>
                 <div className="flex justify-center">
-                    <button
-                        className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
-                        type="submit"
-                    >
-                        Explore Careers &rarr;
-                        <BottomGradient />
-                    </button>
+                    <Link href="/careers">
+                        <button
+                            className="group/btn relative block h-10 w-auto px-5 rounded-md bg-gradient-to-br from-[var(--accent-orange)] to-[var(--accent-gold)] font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
+                            type="submit"
+                        >
+                            Explore Careers &rarr;
+                            <BottomGradient />
+                        </button>
+                    </Link>
                 </div>
             </div>
 
